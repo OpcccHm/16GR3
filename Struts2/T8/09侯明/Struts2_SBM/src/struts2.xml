@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 启用自动动态方法的调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    
+    <constant name="struts.multipart.maxSize" value="2000000"></constant>
+
+        <!-- <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results> -->
+
+        <!-- <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings> -->
+        
+    <!-- 模块化管理包 -->
+    <package name="default" namespace="/" extends="struts-default">
+    	<action name="*User" class="com.qhit.lh.gr3.cj.sbms.user.action.UserAction" method="{1}">
+    		<result name="input">/index.jsp</result>
+    		<result name="loginSuccess">/jsp/admin_index.jsp</result>
+    		<result name="listUser">/jsp/userAdmin.jsp</result>
+    		<result name="uploadPfotoSuccess" type="chain">addUser</result>
+    		<result name="addFile">/jsp/userAdd.jsp</result>
+    		<result name="addSuccess" type="redirectAction">getAllUser</result>
+    	</action>
+    	
+    </package>
+</struts>
