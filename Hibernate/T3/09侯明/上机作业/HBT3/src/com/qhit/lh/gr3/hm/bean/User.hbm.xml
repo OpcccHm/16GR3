@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.hm.bean.User" table="t_User">
+		<id name="uid" column="uid" type="integer">
+			<generator class="foreign">
+				<param name="property">emp</param>
+			</generator>
+		</id>
+		
+		<property name="name" column="name" type="string"></property>
+		<property name="password" column="password" type="string"></property>
+		
+		<one-to-one name="Emp" class="com.qhit.lh.gr3.hm.bean.Emp" cascade="all"></one-to-one>
+	</class>
+</hibernate-mapping>
