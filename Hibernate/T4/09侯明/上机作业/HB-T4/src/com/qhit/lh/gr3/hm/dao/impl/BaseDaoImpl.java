@@ -1,4 +1,4 @@
-﻿package com.qhit.lh.gr3.hm.service.impl;
+package com.qhit.lh.gr3.hm.dao.impl;
 
 import java.util.List;
 
@@ -6,14 +6,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.qhit.lh.gr3.hm.service.BaseService;
+import com.qhit.lh.gr3.hm.dao.BaseDao;
 import com.qhit.lh.gr3.hm.utils.HibernateSessionFactory;
 
-public class BaseServiceImpl implements BaseService {
+public class BaseDaoImpl implements BaseDao {
 
 	@Override
 	public void add(Object obj) {
-		//获取session对象
+		//获取session 对象
 		Session session = HibernateSessionFactory.getSession();
 		//开启事务
 		Transaction ts = session.beginTransaction();
@@ -62,7 +62,7 @@ public class BaseServiceImpl implements BaseService {
 		Session session = HibernateSessionFactory.getSession();
 		//开启事务
 		Transaction ts = session.beginTransaction();
-		//获取查询器对象
+		//获取查询其对象
 		Query query = session.createQuery(fromObject);
 		List<Object> list = query.list();
 		//释放资源
@@ -71,18 +71,18 @@ public class BaseServiceImpl implements BaseService {
 	}
 
 	@Override
-	public Object getObjectById(Object obj, int id) {
+	public Object getObjectById(Class clazz, int id) {
 		//获取session对象
 		Session session = HibernateSessionFactory.getSession();
 		//开启事务
 		Transaction ts = session.beginTransaction();
-		//根据ID查询出对象
-		obj = session.get(obj.getClass(), id);
+		//获取查询器对象
+		Object object = session.get(clazz, id);
 		//提交事务
 		ts.commit();
 		//释放资源
 		HibernateSessionFactory.closeSession();
-		return obj;
+		return object;
 	}
 
 }

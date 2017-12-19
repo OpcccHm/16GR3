@@ -1,4 +1,4 @@
-﻿package com.qhit.lh.gr3.hm.service.impl;
+package com.qhit.lh.gr3.hm.dao.impl;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.qhit.lh.gr3.hm.service.BaseService;
+import com.qhit.lh.gr3.hm.dao.BaseDao;
 import com.qhit.lh.gr3.hm.utils.HibernateSessionFactory;
 
-public class BaseServiceImpl implements BaseService {
+public class BaseDaoImpl implements BaseDao {
 
 	@Override
 	public void add(Object obj) {
@@ -84,5 +84,5 @@ public class BaseServiceImpl implements BaseService {
 		HibernateSessionFactory.closeSession();
 		return obj;
 	}
-
+	
 }

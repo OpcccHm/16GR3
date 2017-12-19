@@ -1,4 +1,4 @@
-﻿package com.qhit.lh.gr3.hm.service.impl;
+package com.qhit.lh.gr3.hm.service.impl;
 
 import java.util.List;
 

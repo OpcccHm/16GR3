@@ -1,4 +1,4 @@
-﻿package com.qhit.lh.gr3.hm.service.impl;
+package com.qhit.lh.gr3.hm.service.impl;
 
 import java.util.List;
 
@@ -6,12 +6,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.qhit.lh.gr3.hm.dao.BaseDao;
+import com.qhit.lh.gr3.hm.dao.impl.BaseDaoImpl;
 import com.qhit.lh.gr3.hm.service.BaseService;
 import com.qhit.lh.gr3.hm.utils.HibernateSessionFactory;
 
 public class BaseServiceImpl implements BaseService {
+	private BaseDao bs = new BaseDaoImpl();
 
-	@Override
 	public void add(Object obj) {
 		//获取session对象
 		Session session = HibernateSessionFactory.getSession();
@@ -26,7 +28,6 @@ public class BaseServiceImpl implements BaseService {
 		
 	}
 
-	@Override
 	public void delete(Object obj) {
 		//获取session对象
 		Session session = HibernateSessionFactory.getSession();
@@ -41,7 +42,6 @@ public class BaseServiceImpl implements BaseService {
 		
 	}
 
-	@Override
 	public void update(Object obj) {
 		//获取session对象
 		Session session = HibernateSessionFactory.getSession();
@@ -56,7 +56,6 @@ public class BaseServiceImpl implements BaseService {
 		
 	}
 
-	@Override
 	public List<Object> getAll(String fromObject) {
 		//获取session对象
 		Session session = HibernateSessionFactory.getSession();
@@ -70,7 +69,6 @@ public class BaseServiceImpl implements BaseService {
 		return list;
 	}
 
-	@Override
 	public Object getObjectById(Object obj, int id) {
 		//获取session对象
 		Session session = HibernateSessionFactory.getSession();
@@ -84,5 +82,6 @@ public class BaseServiceImpl implements BaseService {
 		HibernateSessionFactory.closeSession();
 		return obj;
 	}
+	
 
 }

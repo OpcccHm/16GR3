@@ -1,4 +1,4 @@
-package com.qhit.lh.gr3.hm.dao.impl;
+﻿package com.qhit.lh.gr3.hm.dao.impl;
 
 import java.util.List;
 
@@ -67,7 +67,7 @@ public class BaseDaoImpl implements BaseDao {
 		List<Object> list = query.list();
 		//释放资源
 		HibernateSessionFactory.closeSession();
-		return null;
+		return list;
 	}
 
 	@Override
