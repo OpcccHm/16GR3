@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.hm.exam.common.bean.User" table="t_user" >
+		<id name="name" column="name" type="string">
+			<generator class="assigned"></generator>
+		</id>
+		
+		<property name="pwd" column="pwd" type="string"></property>
+		<property name="role" column="role" type="string"></property>
+		
+	</class>
+</hibernate-mapping>

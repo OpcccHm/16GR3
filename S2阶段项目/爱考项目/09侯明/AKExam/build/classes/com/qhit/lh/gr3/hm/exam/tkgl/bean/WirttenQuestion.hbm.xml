@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.hm.exam.tkgl.bean.WrittenQuestion" table="t_wirttenQuestion">
+		<id name="qid" column="qid" type="integer">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="qtype" column="qtype" type="string"></property>
+		<property name="qtitle" column="qtitle" type="string"></property>
+		<property name="optionA" column="optionA" type="string"></property>
+		<property name="optionB" column="optionB" type="string"></property>
+		<property name="optionC" column="optionC" type="string"></property>
+		<property name="optionD" column="optionD" type="string"></property>
+		<property name="answer" column="answer" type="string"></property>
+		<property name="degree" column="degree" type="string"></property>
+		<property name="csId" column="csId" type="string"></property>
+		<property name="chapter" column="chapter" type="string"></property>
+		
+		<!-- n-1 -->
+		<many-to-one name="course" class="com.qhit.lh.gr3.hm.exam.kmgl.bean.Course" column="csId" lazy="false"></many-to-one>
+		
+	</class>
+</hibernate-mapping>

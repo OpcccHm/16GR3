@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.hm.exam.sjgl.bean.Paper" table="t_paper">
+		<id name="pid" column="pid" type="integer">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="pname" column="pname" type="string"></property>
+		<property name="ptime" column="ptime" type="integer"></property>
+		<property name="ptotalScore" column="ptotalScore" type="integer"></property>
+		<property name="csId" column="csId" type="integer"></property>
+		<property name="qtotal" column="qtotal" type="integer"></property>
+		<property name="qscore" column="qscore" type="integer"></property>
+		<property name="ptype" column="ptype" type="string"></property>
+		<property name="pstate" column="pstate" type="string"></property>
+		
+		<!-- n-1 -->
+		<many-to-one name="course"
+			class="com.qhit.lh.gr3.hm.exam.kmgl.bean.Course" column="csId" lazy="false"></many-to-one>
+		
+		<!-- 1-n -->
+		<set name="paperClasses" lazy="false" cascade="save_update">
+			<key column="pId"></key>
+			<one-to-many class="com.qhit.lh.gr3.hm.exam.sjgl.bean.PaperClass"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.hm.exam.sjgl.bean.PaperClass" table="paper_class">
+		<id name="pcId" column="pcId" type="integer">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="pid" column="pid" type="integer"></property>
+		<property name="ccode" column="ccode" type="string"></property>
+		<property name="examDate" column="examDate" type="date"></property>
+		<property name="endDate" column="endDate" type="date"></property>
+		
+		<!-- n-1 -->
+		<many-to-one name="classInfo" class="com.qhit.lh.gr3.hm.exam.bjgl.bean.ClassInfo" column="ccode" lazy="false"></many-to-one>
+		<many-to-one name="paper" class="com.qhit.lh.gr3.hm.exam.sjgl.bean.Paper" column="pid" lazy="false"></many-to-one>
+	</class>
+</hibernate-mapping>

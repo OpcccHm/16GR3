@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.hm.exam.jsgl.bean.Teacher" table="t_teacher">
+		<id name="tid" column="tid" type="string">
+			<generator class="foreign">
+				<param name="property">user</param>
+			</generator>
+		</id>
+		
+		<property name="tname" type="tname" column="string"></property>
+		<property name="sex" type="sex" column="string"></property>
+		<property name="birthday" type="birthday" column="date"></property>
+		<property name="education" type="education" column="string"></property>
+		<property name="tel" type="tel" column="string"></property>
+		<property name="post" type="post" column="string"></property>
+		<property name="remarks" type="remarks" column="string"></property>
+		
+		<!-- 1-1 -->
+		<one-to-one name="user" class="com.qhit.lh.gr3.hm.exam.common.bean.User" cascade="all"></one-to-one>
+	</class>
+</hibernate-mapping>

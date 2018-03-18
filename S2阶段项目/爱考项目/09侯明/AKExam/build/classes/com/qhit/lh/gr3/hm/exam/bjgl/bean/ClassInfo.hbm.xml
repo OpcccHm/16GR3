@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.gr3.hm.exam.bjgl.bean.ClassInfo" table="t_classInfo">
+		<id name="ccode" column="ccode" type="integer">
+			<generator class="assigned"></generator>
+		</id>
+		
+		<property name="cname" column="cname" type="string"></property>
+		<property name="major" column="major" type="string"></property>
+		<property name="insId" column="insId" type="string"></property>
+		<property name="iecId" column="iecId" type="string"></property>
+		<property name="cdate" column="cdate" type="date"></property>
+		<property name="g1num" column="g1num" type="integer"></property>
+		<property name="g2num" column="g2num" type="integer"></property>
+		<property name="g3num" column="g3num" type="integer"></property>
+		<property name="csId" column="csId" type="integer"></property>
+		<property name="cremark" column="cremark" type="string"></property>
+		
+		<!-- 1-n -->
+		<set name="student" lazy="false" cascade="save-update">
+			<key column="ccode"></key>
+			<one-to-many class="com.qhit.lh.gr3.hm.exam.xsgl.bean.Student"/>
+		</set>
+		
+		<!-- 1-n -->
+		<set name="paperClasses" lazy="false" cascade="save-update">
+			<key column="ccode"></key>
+			<one-to-many class="com.qhit.lh.gr3.hm.exam.sjgl.bean.PaperClass"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>
